@@ -1,0 +1,21 @@
+{
+  "name": "ttify",
+  "main": "tt.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/aminkrJ/ttfy",
+  "authors": [
+    "Amin Karaji <amin.karaji@siteminder.com>"
+  ],
+  "description": "navigate throughout your app readily",
+  "keywords": [
+    "navigator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
