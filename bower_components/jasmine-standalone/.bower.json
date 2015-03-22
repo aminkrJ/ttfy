@@ -1,0 +1,28 @@
+{
+  "name": "jasmine-standalone",
+  "main": "./jasmine-standalone.js",
+  "homepage": "https://github.com/59naga/jasmine-standalone",
+  "authors": [
+    "59naga <i59naga@icloud.com>"
+  ],
+  "description": "uglified js & css > jasmin.min.all.js",
+  "keywords": [
+    "jasmine",
+    "standalone",
+    "main-bower-files"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "~2.1.3"
+  },
+  "_release": "ad135ad795",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ad135ad79518b25a9060d5308b7420c089cb7c86"
+  },
+  "_source": "git://github.com/59naga/jasmine-standalone.git",
+  "_target": "*",
+  "_originalSource": "jasmine-standalone",
+  "_direct": true
+}
