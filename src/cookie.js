@@ -24,4 +24,3 @@ function Cookie(name){
     return removeCookie(this.name);
   };
 };
-

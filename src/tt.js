@@ -38,6 +38,3 @@ function Tt(){
     this.bindT();
   }
 };
-
-var tt = new Tt();
-tt.init();
