@@ -1,19 +1,17 @@
 function Node(){
-  this.nodes = [];
 
-  this.build = function(jqueryObjects){
-    var $this = this;
+  this.converJqueryObjectToNode = function(jqueryObjects){
+    var nodes = [];
     $.each(jqueryObjects, function(i, object){
       var node = {title: $(object).text().toLowerCase(), href: $(object).attr('href')}
-      $this.nodes.push(node);
+      nodes.push(node);
     });
-    return this;
+    return nodes;
   };
 
-  this.generateJqueryObject = function(){
+  this.generateJqueryObject = function(nodes){
     var $this = this;
-    var newNodes = this.nodes.slice();
-    return $.map(newNodes, function(i, node){
+    return $.map(nodes, function(node, i){
       return $("<a></a>").text(node.title).attr('href', node.href)
     });
   }

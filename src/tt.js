@@ -18,19 +18,18 @@ function Tt(){
   this.bindT = function(){
     var $this = this;
     $(window).keypress(function(event){
-      if(event.keyCode == 116){
+      if(event.keyCode == 116 || event.which == 116){
         event.preventDefault();
         $(window).off("keypress");
         $this.ui.hook(function(word){
-          $this.ui.result($this.search(word));
+          $this.ui.attachResult($this.search(word));
         });
       }
     });
   };
 
   this.storeNodes = function(){
-    var newNodes = $.unique(this.node.build($('a')).nodes);
-    this.cookie.set(newNodes);
+    this.cookie.set(this.node.converJqueryObjectToNode($('a')));
   };
 
   this.init = function(){

@@ -16,12 +16,15 @@ function Ui(){
     this.input.focus();
   };
 
-  this.result = function(nodes){
+  this.attachResult = function(nodes){
     var $this = this;
+    $('ul.tt-list').remove();
+    $this.searchResult.empty();
     $.each(nodes, function(i, node){
       var li = $("<li style='list-style-type:none'></li>");
       li.append(node);
       $this.searchResult.append(li);
+      $this.container.append($this.searchResult);
     });
   };
 };

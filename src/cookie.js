@@ -1,18 +1,17 @@
-$.cookie.json = true;
+Cookies.json = true;
 
 function Cookie(name){
   this.name = name;
   this.options = {
-    expires: 365
   };
 
   this.set = function(newNodes){
-    var oldNodes = this.fetch();
-    return $.cookie(this.name, $.unique(oldNodes.concat(newNodes)), this.options);
+    this.remove();
+    return Cookies.set(this.name, newNodes, this.options);
   };
 
   this.fetch = function(){
-    var content = $.cookie(this.name);
+    var content = Cookies.get(this.name);
     if(content == undefined){
       return [];
     }else{
@@ -21,6 +20,6 @@ function Cookie(name){
   };
 
   this.remove = function(){
-    return removeCookie(this.name);
+    return Cookies.remove(this.name);
   };
 };

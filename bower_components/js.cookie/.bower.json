@@ -1,0 +1,25 @@
+{
+  "name": "js.cookie",
+  "main": [
+    "src/js.cookie.js"
+  ],
+  "ignore": [
+    "test",
+    ".*",
+    "*.json",
+    "*.md",
+    "*.txt",
+    "Gruntfile.js"
+  ],
+  "homepage": "https://github.com/js-cookie/js-cookie",
+  "_release": "1ff2fda87c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1ff2fda87c9056bb17f8a27aba94c560589f2e53"
+  },
+  "_source": "https://github.com/js-cookie/js-cookie.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/js-cookie/js-cookie.git",
+  "_direct": true
+}
