@@ -1,18 +1,25 @@
-function Tt(){
-  this.node = new Node();
+function Tt(options){
+  $.extend(options, {
+    // TODO startegy pattern
+    storage: 'Cookies'
+  });
   this.cookie = new Cookie('tt');
   this.ui = new Ui();
 
-  this.search = function(word){
-    var nodes = this.cookie.fetch();
-    var results = [];
+  this.searchWordInStorage = function(word){
+    var results = this.match(word, this.cookie.fetch());
+    return this.generateJqueryObject(results);
+  };
+
+  this.match = function(word, nodes){
+    var matches = [];
     var regex = new RegExp(word, "i");
     $.each(nodes, function(i, node){
       if(regex.test(node.title)){
-        results.push(node);
+        matches.push(node);
       }
     });
-    return this.node.generateJqueryObject(results);
+    return matches;
   };
 
   this.bindT = function(){
@@ -22,18 +29,33 @@ function Tt(){
         event.preventDefault();
         $(window).off("keypress");
         $this.ui.hook(function(word){
-          $this.ui.attachResult($this.search(word));
+          $this.ui.attachResult($this.searchWordInStorage(word));
         });
       }
     });
   };
 
   this.storeNodes = function(){
-    this.cookie.set(this.node.converJqueryObjectToNode($('a')));
+    this.cookie.set(this.converJqueryObjectToNode($('a')));
   };
 
   this.init = function(){
     this.storeNodes();
     this.bindT();
-  }
+  };
+
+  this.converJqueryObjectToNode = function(jqueryObjects){
+    var nodes = [];
+    $.each(jqueryObjects, function(i, object){
+      var node = {title: $(object).text().toLowerCase(), href: $(object).attr('href')}
+      nodes.push(node);
+    });
+    return nodes;
+  };
+
+  this.generateJqueryObject = function(nodes){
+    return $.map(nodes, function(node, i){
+      return $("<a></a>").text(node.title).attr('href', node.href)
+    });
+  };
 };
